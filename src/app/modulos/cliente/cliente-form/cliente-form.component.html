@@ -1,0 +1,187 @@
+<mat-card class="home mat-elevation-z3">  
+    <mat-card-title class="title">
+         Cadastro de Clientes
+    </mat-card-title>
+    <mat-card-header class="header">
+    </mat-card-header>
+    <mat-card-content class="comentario">
+        Cadastre aqui todos os nossos clientes!
+    </mat-card-content>
+
+<form class="forms" [formGroup]="clienteForm">
+<mat-tab-group mat-align-tabs="start">
+    <mat-tab label="Dados Pessoais" class="">
+        <div class="internal-form">
+            <mat-form-field class="ip">
+                <mat-label>ID</mat-label>
+                <input matInput formControlName="id">
+            </mat-form-field>
+                &nbsp;&nbsp; 
+            <mat-form-field class="ig">
+                <mat-label>NOME</mat-label>
+                <input matInput placeholder="Dígite seu nome" formControlName="nome">
+            </mat-form-field>
+                &nbsp;&nbsp; 
+            <mat-form-field class="ii">
+                <mat-label>RG</mat-label>
+                <input matInput placeholder="Dígite seu RG" formControlName="rg">
+            </mat-form-field>
+            &nbsp;&nbsp; 
+            <mat-form-field class="ii">
+                <mat-label>CPF</mat-label>
+                <input matInput placeholder="Dígite seu CPF" formControlName="cpf">
+            </mat-form-field>
+            <br/>
+            <mat-form-field class="im">
+                <mat-label>DATA DE NASCIMENTO</mat-label>
+                <input matInput type="date" formControlName="dataDeNascimento">
+            </mat-form-field>
+            &nbsp;&nbsp;
+            <mat-form-field class="ig">
+                <mat-label>ENDEREÇO</mat-label>
+                <input matInput placeholder="Dígite seu endereço" type="text" formControlName="endereco">
+            </mat-form-field>
+            &nbsp;&nbsp;
+            <mat-form-field class="im">
+                <mat-label>TELEFONE</mat-label>
+                <input matInput placeholder="Dígite seu telefone" type="tel" formControlName="telefone">
+            </mat-form-field>
+            <br/>
+            <mat-form-field class="ig">
+                <mat-label>EMAIL</mat-label>
+                <input matInput placeholder="Dígite seu email" type="email" formControlName="email">
+            </mat-form-field>
+        </div>  
+    </mat-tab>
+    <mat-tab label="Dados Empresariais">
+        <div class="internal-form">
+            <mat-form-field class="ig">
+                <mat-label>RAZÃO SOCIAL</mat-label>
+                <input matInput placeholder="Dígite a razão social" formControlName="razaoSocial">
+            </mat-form-field>
+            &nbsp;&nbsp;
+            <mat-form-field class="ig">
+                <mat-label>NOME FANTASIA</mat-label>
+                <input matInput placeholder="Dígite o nome fantasia" formControlName="nomeFantasia">
+            </mat-form-field>
+            <br/>
+            <mat-form-field class="ii">
+                <mat-label>CNPJ</mat-label>
+                <input matInput placeholder="Dígite o CNPJ" formControlName="cnpj">
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field class="im">
+                <mat-label>RAMO DE ATIVIDADE</mat-label>
+                <input matInput placeholder="Dígite o ramo de atividade" type="text" formControlName="ramoDeAtividade">
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field class="ig">
+                <mat-label>ENDEREÇO COMERCIAL</mat-label>
+                <input matInput placeholder="Dígite o endereco comercial" formControlName="endComercial">
+            </mat-form-field>
+            <br/>
+            <mat-form-field class="ii">
+                <mat-label>TELEFONE COMERCIAL</mat-label>
+                <input matInput placeholder="Dígite o telefone comercial" type="tel" formControlName="telComercial">
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field class="ig">
+                <mat-label>EMAIL COMERCIAL</mat-label>
+                <input matInput placeholder="Dígite o email comercial" type="email" formControlName="emailComercial">
+            </mat-form-field>
+        </div>
+    </mat-tab>
+    <mat-tab label="Financeiro">
+        <div class="internal-form">
+            <mat-form-field appearance="fill">
+                <mat-label>PLANOS</mat-label>
+                <mat-select formControlName="plano">
+                  <mat-option *ngFor="let plano of planos" [value]="plano.value">
+                    {{plano.viewValue}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+              &nbsp;&nbsp;
+            <mat-form-field appearance="fill">
+                <mat-label>TIPO DO PAGAMENTO</mat-label>
+                <mat-select formControlName="tipoPagamento">
+                  <mat-option *ngFor="let tp of tipoP" [value]="tp.value">
+                    {{tp.viewValue}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            &nbsp;&nbsp;
+            <mat-form-field class="im">
+                <mat-label>DATA DA ADESÂO</mat-label>
+                <input matInput type="date" formControlName="dataDeInicio">
+            </mat-form-field>
+                &nbsp;&nbsp;
+            <mat-form-field class="im">
+                <mat-label>DATA FIM</mat-label>
+                <input matInput type="date" formControlName="dataFim">
+            </mat-form-field>
+            <br/>            
+            <mat-form-field appearance="fill">
+                <mat-label>PERIODO</mat-label>
+                <mat-select formControlName="periodo">
+                  <mat-option *ngFor="let periodo of periodos" [value]="periodo.value">
+                    {{periodo.viewValue}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            &nbsp;&nbsp;
+            <mat-form-field appearance="fill">
+                <mat-label>STATUS DO CLIENTE</mat-label>
+                <mat-select formControlName="statusCliente">
+                  <mat-option *ngFor="let statusCliente of statusClientes" [value]="statusCliente.value">
+                    {{statusCliente.viewValue}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            &nbsp;&nbsp;
+            <mat-form-field class="im">
+                <mat-label>VALOR</mat-label>
+                <input matInput placeholder="Dígite o valor" formControlName="valor">
+            </mat-form-field>
+        </div>
+    </mat-tab>
+</mat-tab-group>
+<div>
+    <br/>
+    <button mat-raised-button color="primary" (click)="onSumit()">Salvar</button>
+    <br/><br/>
+    <div *ngIf="clienteForm.controls.nome.errors && !clienteForm.controls.nome.pristine">
+        <div *ngIf="clienteForm.controls.nome.errors.required">
+            Campo nome é obrigatorio!
+        </div>
+    </div>
+    <div *ngIf="clienteForm.controls.cpf.errors && !clienteForm.controls.cpf.pristine">
+        <div *ngIf="clienteForm.controls.cpf.errors.required;">
+            Campo CPF é obrigatorio!
+        </div>
+    </div>
+    <div *ngIf="clienteForm.controls.email.errors && !clienteForm.controls.email.pristine">
+        <div *ngIf="clienteForm.controls.email.errors.required">
+            Campo email é obrigatório!
+        </div>
+        <div *ngIf="clienteForm.controls.email.errors.email">
+            Campo email é inválido!
+        </div>
+    </div>
+    <div *ngIf="clienteForm.controls.razaoSocial.errors && !clienteForm.controls.razaoSocial.pristine ">
+        <div *ngIf="clienteForm.controls.razaoSocial.errors.required">
+            Campo razão social é obrigatorio!
+        </div>
+    </div>
+    <div *ngIf="clienteForm.controls.cnpj.errors && !clienteForm.controls.cnpj.pristine">
+        <div *ngIf="clienteForm.controls.cnpj.errors.required">
+            Campo CNPJ é obrigatorio!
+        </div>
+    </div>
+</div>
+
+</form>
+</mat-card>
+<pre>
+  <!--{{ clienteForm.value | json }}-->  
+</pre>
